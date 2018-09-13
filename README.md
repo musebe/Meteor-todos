@@ -7,5 +7,3 @@ Use it to share a single todo list with your friends. The list updates on everyo
 Learn how to build this app by following the [Meteor Tutorial](http://www.meteor.com/install).
 
 Read more about building apps with Meteor in the [Meteor Guide](http://guide.meteor.com).
-
-![screenshot](screenshot.png)
