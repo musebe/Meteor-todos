@@ -1,9 +1,12 @@
 <template name="task">
+  <!-- Set appropriate classes based on boolean values of 'checked' and 'private' boolean values -->
   <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
 
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
+    <!-- Show button to toggle whether or not a task is private based on
+      whether or not the person logged in is the owner of the task  -->
     {{#if isOwner}}
       <button class="toggle-private">
         {{#if private}}

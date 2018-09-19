@@ -8,8 +8,10 @@
         Hide Completed Tasks
       </label>
 
+      <!-- Insert login button -->
       {{> loginButtons}}
 
+      <!-- Check that a user is logged in before displaying the form -->
       {{#if currentUser}}
         <form class="new-task">
           <input type="text" name="text" placeholder="Type to add new tasks" />
@@ -18,6 +20,8 @@
     </header>
 
     <ul>
+      <!-- Loop through available tasks in the database -->
+      <!-- For each task, insert the appropriate task template -->
       {{#each tasks}}
         {{> task}}
       {{/each}}

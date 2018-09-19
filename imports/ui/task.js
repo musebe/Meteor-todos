@@ -4,6 +4,8 @@ import { Template } from 'meteor/templating';
 import './task.html';
 
 Template.task.helpers({
+  //Function that returns a boolean value
+  //indicating whether the current user is the owner of the task
   isOwner() {
     return this.owner === Meteor.userId();
   },

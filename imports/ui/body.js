@@ -7,6 +7,10 @@ import { Tasks } from '../api/tasks.js';
 import './task.js';
 import './body.html';
 
+/*
+ * When the body template is created, set the template state
+ * to a new ReactiveDict object, then subscribe to the 'tasks' publication
+ */
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
   Meteor.subscribe('tasks');
@@ -22,6 +26,7 @@ Template.body.helpers({
     // Otherwise, return all of the tasks
     return Tasks.find({}, { sort: { createdAt: -1 } });
   },
+  //method to return the number of unchecked To-Do items
   incompleteCount() {
     return Tasks.find({ checked: { $ne: true } }).count();
   },
@@ -42,6 +47,7 @@ Template.body.events({
     // Clear form
     target.text.value = '';
   },
+  //When the 'hide completed' checkbox is clicked, set state to hide all completed tasks 
   'change .hide-completed input'(event, instance) {
     instance.state.set('hideCompleted', event.target.checked);
   },
